@@ -1,0 +1,36 @@
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# accidentApp
+
+<!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+<!-- badges: end -->
+
+The goal of accidentApp is to make some descriptifs statistics of the
+accident data base of France in 2017.
+
+## Installation
+
+You can install the development version of accidentApp from
+[GitHub](https://github.com/ngsanogo/accidentApp) with:
+
+``` r
+devtools::install_github("r-lib/accidentApp")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+``` r
+library(accidentApp)
+
+accidentApp::run_app()
+```
+
+Please note that the ‘accidentApp’ project is released with a
+[Contributor Code of Conduct](CODE_OF_CONDUCT.md). By contributing to
+this project, you agree to abide by its terms.
