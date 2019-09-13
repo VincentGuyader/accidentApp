@@ -12,7 +12,7 @@ golem::fill_desc(
   pkg_name = "accidentApp", # The Name of the package containing the App 
   pkg_title = "Application shiny sur les accidents corporels de la route en 2017 en France", # The Title of the package containing the App 
   pkg_description = "Quelques statistiques sur les accidents corporels de la route en 2017.", # The Description of the package containing the App 
-  author_first_name = "N'Gouro dit Issa", # Your First Name
+  author_first_name = "NGouro dit Issa", # Your First Name
   author_last_name = "Sanogo",  # Your Last Name
   author_email = "ngsanogo@gmail.com",      # Your Email
   repo_url = "https://github.com/ngsanogo/accidentApp" # The (optional) URL of the GitHub Repo

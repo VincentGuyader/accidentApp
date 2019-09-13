@@ -5,7 +5,11 @@ app_ui <- function() {
     golem_add_external_resources(),
     # List the first level UI elements here 
     fluidPage(
-      h1("accidentApp")
+      titlePanel("Accidents corporels 2017"),
+      sidebarLayout(
+        mod_sidebar_ui("sidebar_ui_1"),
+        mod_main_ui("main_ui_1")
+      )
     )
   )
 }
@@ -16,7 +20,7 @@ golem_add_external_resources <- function(){
   addResourcePath(
     'www', system.file('app/www', package = 'accidentApp')
   )
- 
+  
   tags$head(
     golem::activate_js(),
     golem::favicon()
