@@ -18,7 +18,7 @@ You can install the development version of accidentApp from
 [GitHub](https://github.com/ngsanogo/accidentApp) with:
 
 ``` r
-devtools::install_github("r-lib/accidentApp")
+devtools::install_github("ngsanogo/accidentApp")
 ```
 
 ## Example

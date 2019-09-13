@@ -4,8 +4,8 @@
 #' @description  A shiny Module.
 #'
 #' @param id shiny id
-#' @param input internal
-#' @param output internal
+#' @param input void
+#' @param output Tableau ou graphe
 #' @param session internal
 #'
 #' @rdname mod_main
@@ -33,30 +33,29 @@ mod_main_server <- function(input, output, session){
   ns <- session$ns
   # Tableau
   output$tab <- renderDataTable({
-    # # Choix graphique
-    # if (input$graph) return(NULL)
-    # # Choix bdd
-    # if (input$bdd == "carac") {
-    #   data <- carac
-    #   var1 <- input$var1
-    #   var2 <- input$var2
-    # } else {
-    #   data <- usager
-    #   var1 <- input$var3
-    #   var2 <- input$var4
-    # }
-    # # Type de statistique
-    # if (input$type == "uni") {
-    #   data %>%
-    #     group_by(!!var1) %>%
-    #     summarise(n = n()) %>%
-    #     mutate(prop = percent(n / sum(n)))
-    # } else {
-    #   data %>%
-    #     select(!!var1, !!var2) %>%
-    #     table()
-    # }
-    carac
+    # Choix graphique
+    if (input$graph) return(NULL)
+    # Choix bdd
+    if (input$bdd == "carac") {
+      data <- carac
+      var1 <- input$var1
+      var2 <- input$var2
+    } else {
+      data <- usager
+      var1 <- input$var3
+      var2 <- input$var4
+    }
+    # Type de statistique
+    if (input$type == "uni") {
+      data %>%
+        group_by(!!var1) %>%
+        summarise(n = n()) %>%
+        mutate(prop = percent(n / sum(n)))
+    } else {
+      data %>%
+        select(!!var1, !!var2) %>%
+        table()
+    }
   })
   
   # Graphique

@@ -5,7 +5,7 @@
 #'
 #' @param id shiny id
 #' @param input Base à analyser, variables à descrire, options graphisme
-#' @param output Tableau ou graphe
+#' @param output void
 #' @param session internal
 #'
 #' @rdname mod_sidebar
@@ -21,13 +21,17 @@ mod_sidebar_ui <- function(id) {
       selectInput(
         inputId = "bdd",
         label = "Choix de la base :",
-        choices = c("Caractéristique" = "carac", "Usager" = "usager")
+        choices = c("Caractéristique" = "carac",
+                    "Usager" = "usager"
+                    )
       ),
       # Choix du type de statistiques
       selectInput(
         inputId = "type",
         label = "Type de statistiques :",
-        choices = c("Univarié" = "uni", "Bivarié" = "bi")
+        choices = c("Univarié" = "uni",
+                    "Bivarié" = "bi"
+                    )
       ),
       # Choix graphe
       checkboxInput(
@@ -46,7 +50,8 @@ mod_sidebar_ui <- function(id) {
                            "heure" = "heure",
                            "Agglomération" = "agg"
                          )
-                       )),
+                       )
+      ),
       # choix variable 2
       conditionalPanel(condition = "input.bdd == 'carac' & input.type == 'bi'",
                        selectInput(
@@ -58,7 +63,8 @@ mod_sidebar_ui <- function(id) {
                            "heure" = "heure",
                            "Agglomération" = "agg"
                          )
-                       )),
+                       )
+      ),
       conditionalPanel(condition = "input.bdd == 'usager'",
                        selectInput(
                          inputId = "var3",
@@ -70,7 +76,8 @@ mod_sidebar_ui <- function(id) {
                            "Catégorie" = "catu",
                            "Trajet" = "trajet"
                          )
-                       )),
+                       )
+      ),
       conditionalPanel(condition = "input.bdd == 'usager' & input.type == 'bi'",
                        selectInput(
                          inputId = "var4",
@@ -82,7 +89,8 @@ mod_sidebar_ui <- function(id) {
                            "Catégorie" = "catu",
                            "Trajet" = "trajet"
                          )
-                       ))
+                       )
+      )
     )
   )
 }
