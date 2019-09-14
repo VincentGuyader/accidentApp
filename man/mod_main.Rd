@@ -12,9 +12,9 @@ mod_main_server(input, output, session)
 \arguments{
 \item{id}{shiny id}
 
-\item{input}{internal}
+\item{input}{void}
 
-\item{output}{internal}
+\item{output}{Tableau ou graphe}
 
 \item{session}{internal}
 }

@@ -17,7 +17,7 @@ mod_main_ui <- function(id){
   ns <- NS(id)
   tagList(
     mainPanel(
-      dataTableOutput("tab"),
+      DT::DTOutput("tab"),
       plotOutput("plot")
     )
   )
@@ -32,18 +32,18 @@ mod_main_ui <- function(id){
 mod_main_server <- function(input, output, session){
   ns <- session$ns
   # Tableau
-  output$tab <- renderDataTable({
+  output$tab <- DT::renderDT({
     # Choix graphique
     if (input$graph) return(NULL)
     # Choix bdd
     if (input$bdd == "carac") {
       data <- carac
-      var1 <- input$var1
-      var2 <- input$var2
+      var1 <- ensym(input$var1)
+      var2 <- ensym(input$var2)
     } else {
       data <- usager
-      var1 <- input$var3
-      var2 <- input$var4
+      var1 <- ensym(input$var3)
+      var2 <- ensym(input$var4)
     }
     # Type de statistique
     if (input$type == "uni") {
@@ -66,17 +66,17 @@ mod_main_server <- function(input, output, session){
     # Choix bdd
     if (input$bdd == "carac") {
       data <- carac
-      var1 <- input$var1
-      var2 <- input$var2
+      var1 <- ensym(input$var1)
+      var2 <- ensym(input$var2)
     } else {
       data <- usager
-      var1 <- input$var3
-      var2 <- input$var4
+      var1 <- ensym(input$var3)
+      var2 <- ensym(input$var4)
     }
     
     # Type de statistique
     if (input$type == "uni") {
-      ggplot(data, aes(!!input$var1, fill = !!input$var1)) +
+      ggplot(data, aes(!!var1, fill = !!var1)) +
         geom_bar(na.rm = T) +
         ylab("Effectifs") +
         geom_text(
@@ -86,7 +86,7 @@ mod_main_server <- function(input, output, session){
           vjust = -0.5
         )
     } else {
-      ggplot(data, aes(!!input$var1, fill = !!input$var2)) +
+      ggplot(data, aes(!!var1, fill = !!var2)) +
         geom_bar(na.rm = F) +
         ylab("Effectifs") +
         geom_text(aes(label = ..count..),

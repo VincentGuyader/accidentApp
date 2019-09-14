@@ -13,11 +13,9 @@ golem::add_module( name = "main" ) # Name of the module
 ## 2.2 Add dependencies
 
 usethis::use_package("knitr") # To call each time you need a new package
-# usethis::use_package("kableExtra")
 # usethis::use_package("readr")
 # usethis::use_package("dplyr")
 # usethis::use_package("stringr")
-# usethis::use_package("lubridate")
 # usethis::use_package("scales")
 # usethis::use_package("DT")
 ## 2.3 Add tests

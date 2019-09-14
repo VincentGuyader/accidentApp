@@ -14,7 +14,7 @@ mod_sidebar_server(input, output, session)
 
 \item{input}{Base à analyser, variables à descrire, options graphisme}
 
-\item{output}{Tableau ou graphe}
+\item{output}{void}
 
 \item{session}{internal}
 }
