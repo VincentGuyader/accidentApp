@@ -19,7 +19,8 @@ Imports:
     stringr,
     scales,
     knitr,
-    kableExtra
+    kableExtra,
+    magrittr
 RoxygenNote: 6.1.1
 URL: https://github.com/ngsanogo/accidentApp
 BugReports: https://github.com/ngsanogo/accidentApp/issues
