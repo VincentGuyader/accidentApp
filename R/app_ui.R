@@ -7,8 +7,8 @@ app_ui <- function() {
     fluidPage(
       titlePanel("Accidents corporels 2017"),
       sidebarLayout(
-        sidebarPanel =  mod_sidebar_ui("sidebar_ui_1"),
-        mainPanel = mod_main_ui("main_ui_1")
+        sidebarPanel =  sidebarPanel(mod_sidebar_ui("sidebar_ui_1")),
+        mainPanel = mainPanel(mod_main_ui("sidebar_ui_1"))
       )
     )
   )

@@ -17,7 +17,9 @@ usethis::use_package("knitr") # To call each time you need a new package
 # usethis::use_package("dplyr")
 # usethis::use_package("stringr")
 # usethis::use_package("scales")
-# usethis::use_package("DT")
+# usethis::use_package("knitr")
+# usethis::use_package("kableExtra")
+
 ## 2.3 Add tests
 
 usethis::use_test( "app" )

@@ -16,9 +16,13 @@
 mod_main_ui <- function(id){
   ns <- NS(id)
   tagList(
-    mainPanel(
-      DT::DTOutput("tab"),
-      plotOutput("plot")
+    tabsetPanel(
+      tabPanel("Tableau",
+               tableOutput(ns("tab"))
+      ),
+      tabPanel("Graphique",
+               plotOutput(ns("plot"))
+      )
     )
   )
 }
@@ -32,73 +36,68 @@ mod_main_ui <- function(id){
 mod_main_server <- function(input, output, session){
   ns <- session$ns
   # Tableau
-  output$tab <- DT::renderDT({
-    # Choix graphique
-    if (input$graph) return(NULL)
+  output$tab <- function() {
     # Choix bdd
     if (input$bdd == "carac") {
       data <- carac
-      var1 <- ensym(input$var1)
-      var2 <- ensym(input$var2)
+      var1 <- dplyr::sym(input$var1)
+      var2 <- dplyr::sym(input$var2)
     } else {
       data <- usager
-      var1 <- ensym(input$var3)
-      var2 <- ensym(input$var4)
+      var1 <- dplyr::sym(input$var3)
+      var2 <- dplyr::sym(input$var4)
     }
     # Type de statistique
     if (input$type == "uni") {
       data %>%
-        group_by(!!var1) %>%
-        summarise(n = n()) %>%
-        mutate(prop = percent(n / sum(n)))
+        dplyr::group_by(!!var1) %>%
+        dplyr::summarise(n = n()) %>%
+        dplyr::mutate(prop = scales::percent(n / sum(n))) %>%
+        knitr::kable("html") %>%
+        kableExtra::kable_styling(bootstrap_options = "striped", full_width = F)
     } else {
       data %>%
-        select(!!var1, !!var2) %>%
-        table()
+        dplyr::select(!!var1, !!var2) %>%
+        table() %>%
+        knitr::kable("html") %>%
+        kableExtra::kable_styling(bootstrap_options = "striped", full_width = F)
     }
-  })
+  }
   
   # Graphique
   output$plot <- renderPlot({
-    # Choix graphique
-    if (!input$graph) return(NULL)
-    
     # Choix bdd
     if (input$bdd == "carac") {
       data <- carac
-      var1 <- ensym(input$var1)
-      var2 <- ensym(input$var2)
+      var1 <- dplyr::sym(input$var1)
+      var2 <- dplyr::sym(input$var2)
     } else {
       data <- usager
-      var1 <- ensym(input$var3)
-      var2 <- ensym(input$var4)
+      var1 <- dplyr::sym(input$var3)
+      var2 <- dplyr::sym(input$var4)
     }
     
     # Type de statistique
     if (input$type == "uni") {
-      ggplot(data, aes(!!var1, fill = !!var1)) +
-        geom_bar(na.rm = T) +
-        ylab("Effectifs") +
-        geom_text(
-          aes(label = ..count..),
+      ggplot2::ggplot(data, ggplot2::aes(!!var1, fill = !!var1)) +
+        ggplot2::geom_bar(na.rm = T) +
+        ggplot2::ylab("Effectifs") +
+        ggplot2::geom_text(
+          ggplot2::aes(label = ..count..),
           stat = "count",
-          position = position_dodge(0.9),
+          position = ggplot2::position_dodge(0.9),
           vjust = -0.5
         )
     } else {
-      ggplot(data, aes(!!var1, fill = !!var2)) +
-        geom_bar(na.rm = F) +
-        ylab("Effectifs") +
-        geom_text(aes(label = ..count..),
-                  stat = "count",
-                  position = position_stack(.5))
+      ggplot2::ggplot(data, ggplot2::aes(!!var1, fill = !!var2)) +
+        ggplot2::geom_bar(na.rm = F) +
+        ggplot2::ylab("Effectifs") +
+        ggplot2::geom_text(
+          ggplot2::aes(label = ..count..),
+          stat = "count",
+          position = ggplot2::position_stack(.5)
+        )
     }
   })
 }
-
-## To be copied in the UI
-# mod_main_ui("main_ui_1")
-
-## To be copied in the server
-# callModule(mod_main_server, "main_ui_1")
 

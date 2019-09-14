@@ -14,11 +14,12 @@ Imports:
     DT,
     glue,
     htmltools,
-    knitr,
     readr,
     dplyr,
     stringr,
-    scales
+    scales,
+    knitr,
+    kableExtra
 RoxygenNote: 6.1.1
 URL: https://github.com/ngsanogo/accidentApp
 BugReports: https://github.com/ngsanogo/accidentApp/issues
