@@ -13,7 +13,8 @@
 #' @keywords internal
 #' @export 
 #' @importFrom shiny NS tagList 
-#' #' @importFrom magrittr `%>%` 
+#' @importFrom magrittr %>%
+
 mod_main_ui <- function(id){
   ns <- NS(id)
   tagList(
