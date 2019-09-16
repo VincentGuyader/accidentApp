@@ -6,6 +6,9 @@
 \usage{
 run_app(...)
 }
+\arguments{
+\item{...}{N'importe quel objet R}
+}
 \description{
 Run the Shiny Application
 }

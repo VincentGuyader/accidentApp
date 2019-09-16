@@ -1,5 +1,6 @@
 #' Run the Shiny Application
 #'
+#' @param ... N'importe quel objet R
 #' @export
 #' @importFrom shiny shinyApp
 #' @importFrom golem with_golem_options

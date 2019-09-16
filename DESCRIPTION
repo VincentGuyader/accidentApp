@@ -3,6 +3,7 @@ Title: Application shiny sur les accidents corporels de la route en 2017 en Fran
 Version: 0.0.0.9000
 Authors@R: person('NGouro dit Issa', 'Sanogo', email = 'ngsanogo@gmail.com', role = c('cre', 'aut'))
 Description: Quelques statistiques sur les accidents corporels de la route en 2017.
+Depends: R (>= 2.10)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

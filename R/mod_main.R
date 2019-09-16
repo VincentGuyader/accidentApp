@@ -42,11 +42,11 @@ mod_main_server <- function(input, output, session){
   output$tab <- function() {
     # Choix bdd
     if (input$bdd == "carac") {
-      data <- carac
+      data <- accidentApp::carac
       var1 <- dplyr::sym(input$var1)
       var2 <- dplyr::sym(input$var2)
     } else {
-      data <- usager
+      data <- accidentApp::usager
       var1 <- dplyr::sym(input$var3)
       var2 <- dplyr::sym(input$var4)
     }
@@ -71,11 +71,11 @@ mod_main_server <- function(input, output, session){
   output$plot <- renderPlot({
     # Choix bdd
     if (input$bdd == "carac") {
-      data <- carac
+      data <- accidentApp::carac
       var1 <- dplyr::sym(input$var1)
       var2 <- dplyr::sym(input$var2)
     } else {
-      data <- usager
+      data <- accidentApp::usager
       var1 <- dplyr::sym(input$var3)
       var2 <- dplyr::sym(input$var4)
     }

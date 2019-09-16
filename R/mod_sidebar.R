@@ -20,7 +20,7 @@ mod_sidebar_ui <- function(id) {
     selectInput(
       inputId = ns("bdd"),
       label = "Choix de la base :",
-      choices = c("Caractéristique" = "carac",
+      choices = c("Caract\u00e9ristique" = "carac",
                   "Usager" = "usager"
       )
     ),
@@ -28,8 +28,8 @@ mod_sidebar_ui <- function(id) {
     selectInput(
       inputId = ns("type"),
       label = "Type de statistiques :",
-      choices = c("Univarié" = "uni",
-                  "Bivarié" = "bi"
+      choices = c("Univari\u00e9" = "uni",
+                  "Bivari\u00e9" = "bi"
       )
     ),
 
@@ -43,7 +43,7 @@ mod_sidebar_ui <- function(id) {
                          "Mois" = "mois",
                          "Jours" = "jours",
                          "heure" = "heure",
-                         "Agglomération" = "agg"
+                         "Agglom\u00e9ration" = "agg"
                        )
                      )
     ),
@@ -57,7 +57,7 @@ mod_sidebar_ui <- function(id) {
                          "Mois" = "mois",
                          "Jours" = "jours",
                          "heure" = "heure",
-                         "Agglomération" = "agg"
+                         "Agglom\u00e9ration" = "agg"
                        )
                      )
     ),
@@ -70,7 +70,7 @@ mod_sidebar_ui <- function(id) {
                          "Age" = "age",
                          "Sexe" = "sexe",
                          "Grave" = "grav",
-                         "Catégorie" = "catu",
+                         "Cat\u00e9gorie" = "catu",
                          "Trajet" = "trajet"
                        )
                      )
@@ -84,7 +84,7 @@ mod_sidebar_ui <- function(id) {
                          "Age" = "age",
                          "Sexe" = "sexe",
                          "Grave" = "grav",
-                         "Catégorie" = "catu",
+                         "Cat\u00e9gorie" = "catu",
                          "Trajet" = "trajet"
                        )
                      )
