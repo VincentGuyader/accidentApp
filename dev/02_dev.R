@@ -19,7 +19,8 @@ usethis::use_package("knitr") # To call each time you need a new package
 # usethis::use_package("scales")
 # usethis::use_package("knitr")
 # usethis::use_package("kableExtra")
-#usethis::use_package("magrittr")
+# usethis::use_package("magrittr")
+# usethis::use_package("ggplot2")
 
 ## 2.3 Add tests
 

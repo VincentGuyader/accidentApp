@@ -14,6 +14,7 @@
 #' @export 
 #' @importFrom shiny NS tagList 
 #' @importFrom magrittr %>%
+#' @importFrom dplyr n
 
 mod_main_ui <- function(id){
   ns <- NS(id)
