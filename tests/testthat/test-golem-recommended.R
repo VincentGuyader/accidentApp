@@ -22,7 +22,7 @@ test_that(
       "R", 
       c(
         "-e", 
-        "setwd('../../'); pkgload::load_all();run_app()"
+        "setwd('./'); pkgload::load_all();run_app()"
       )
     )
     Sys.sleep(5)
